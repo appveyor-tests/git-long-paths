@@ -1,6 +1,6 @@
 init:
-- ps: '"`"C:\Program Files\Git\unins000.exe`" /silent" | out-file ".\uninstall-git.cmd" -Encoding ASCII'
-- ps: '& .\uninstall-git.cmd'
+- ps: '"`"C:\Program Files\Git\unins000.exe`" /silent" | out-file "$env:TEMP\uninstall-git.cmd" -Encoding ASCII'
+- ps: '& $env:TEMP\uninstall-git.cmd'
 - echo Uninstalled
 - ps: $exePath = "$env:TEMP\Git-2.11.1-64-bit.exe"
 - ps: (New-Object Net.WebClient).DownloadFile('https://github.com/git-for-windows/git/releases/download/v2.11.1.windows.1/Git-2.11.1-64-bit.exe', $exePath)
