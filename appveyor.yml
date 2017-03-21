@@ -1,3 +1,8 @@
+init:
+- ps: $exePath = "$env:TEMP\Git-2.11.1-64-bit.exe"
+- ps: (New-Object Net.WebClient).DownloadFile('https://github.com/git-for-windows/git/releases/download/v2.11.1.windows.1/Git-2.11.1-64-bit.exe', $exePath)
+- ps: cmd /c start /wait $exePath /VERYSILENT /NORESTART /NOCANCEL /SP- /NOICONS /COMPONENTS="icons,icons\quicklaunch,ext,ext\reg,ext\reg\shellhere,ext\reg\guihere,assoc,assoc_sh" /LOG
+
 test_script:
 - git config --global core.longpaths true
 - md C:\Users\appveyor\AppData\Local\Temp\1\npm-2900-8b1a0fe2\git-cache-397d6243\2430cdb3ef7fc9e1a93d9ed0f7cb8321679d7963
