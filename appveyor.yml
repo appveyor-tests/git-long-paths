@@ -1,5 +1,5 @@
 init:
-- ps: '"`"C:\Program Files\Git\unins000.exe`" /S" | out-file ".\uninstall-git.cmd" -Encoding ASCII'
+- ps: '"`"C:\Program Files\Git\unins000.exe`" /silent" | out-file ".\uninstall-git.cmd" -Encoding ASCII'
 - ps: '& .\uninstall-git.cmd'
 - echo Uninstalled
 - ps: $exePath = "$env:TEMP\Git-2.11.1-64-bit.exe"
